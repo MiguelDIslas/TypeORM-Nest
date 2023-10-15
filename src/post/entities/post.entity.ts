@@ -9,9 +9,11 @@ import {
   ManyToOne,
   JoinColumn,
   BeforeInsert,
+  OneToMany,
 } from 'typeorm';
 import slugify from 'slugify';
 import { Exclude } from 'class-transformer';
+import { Question } from '../../question/entities/question.entity';
 
 @Entity({ name: 'posts', schema: 'posts' })
 export class Post {
@@ -54,6 +56,9 @@ export class Post {
   })
   @JoinColumn({ name: 'categoryId', referencedColumnName: 'id' })
   category: Category;
+
+  @OneToMany(() => Question, (question) => question.post)
+  questions: Question[];
 
   @CreateDateColumn()
   createdAt: Date;

@@ -7,6 +7,7 @@ import { CategoryModule } from './category/category.module';
 import { AuthModule } from './auth/auth.module';
 import { AccessControlModule } from 'nest-access-control';
 import { roles } from './common/enum';
+import { QuestionModule } from './question/question.module';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { roles } from './common/enum';
     CategoryModule,
     AuthModule,
     AccessControlModule.forRoles(roles),
+    QuestionModule,
   ],
   controllers: [AppController],
   providers: [AppService],
