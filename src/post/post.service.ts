@@ -16,7 +16,7 @@ export class PostService {
 
   async create(createPostDto: CreatePostDto, user: User) {
     const post = new Post();
-    post.userId = user.id;
+    post.userId = user.id || 1;
 
     Object.assign(post, createPostDto);
 
