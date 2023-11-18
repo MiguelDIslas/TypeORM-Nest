@@ -35,7 +35,7 @@ export class PostController {
 
   @Post()
   @UsePipes(ValidationPipe)
-  @UseGuards(CurrentUserGuard, ACGuard)
+  // @UseGuards(CurrentUserGuard, ACGuard)
   @UseRoles({
     possession: 'any',
     action: 'create',
