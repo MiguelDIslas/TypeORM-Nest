@@ -103,12 +103,12 @@ export class PostController {
   }
 
   @Patch(':id')
-  @UseGuards(CurrentUserGuard, ACGuard)
-  @UseRoles({
-    possession: 'any',
-    action: 'update',
-    resource: 'posts',
-  })
+  // @UseGuards(CurrentUserGuard, ACGuard)
+  // @UseRoles({
+  //   possession: 'any',
+  //   action: 'update',
+  //   resource: 'posts',
+  // })
   update(@Param('id') id: string, @Body() updatePostDto: UpdatePostDto) {
     return this.postService.update(+id, updatePostDto);
   }
